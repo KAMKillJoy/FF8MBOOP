@@ -84,7 +84,10 @@ class Commander:
                 continue
             if helpers.is_skip_param(val):
                 continue
-            param_context = f"{key} filter parameter"
+            if key.endswith("filter"):
+                param_context = f"{key} parameter"
+            else:
+                param_context = f"{key} filter parameter"
             params_string = self.__build_filter_params_string(param_context)
             if params_string:
                 fp_flag = value.get('filter parameters flag') or ':'
