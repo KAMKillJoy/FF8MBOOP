@@ -85,7 +85,7 @@ class Menu:
                     self.settings[param] = val
                     return
 
-        elif param_type == Type.DIRECT.CHOICE.value:
+        elif param_type == Type.CHOICE.value:
             # список вариантов
             while True:
                 choices = param_dict["choices"]
