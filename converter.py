@@ -48,9 +48,10 @@ def main(preselected_codec=None, skip_menu: bool = False):
     helpers.os_adapter.set_terminal_title("FFBOOP")
 
     files = args.files
-    '''if not files:
+    if not files:
         print("No input files. Drag & drop video files onto this script.")
-        return'''
+        input()
+        return
 
     # Выбор кодека
     codec = resolve_codec(preselected_codec, skip_menu=skip_menu)
