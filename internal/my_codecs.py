@@ -1,4 +1,4 @@
-from internal.codec_schema import Context, Type
+from internal.codec_schema import Context, ParamType
 from internal import helpers
 
 
@@ -46,7 +46,7 @@ vp9 = Codec(
     vcodec="libvpx-vp9",
     params={
         "crf": {
-            "type": Type.DIRECT.value,  # тип параметра.
+            "type": ParamType.DIRECT.value,  # тип параметра.
             # direct - ввод с клавиатуры,
             # choice - выбор вариантов,
             # handled - ничего конкретного не значит, просто подсказка, что обрабатывается собственным методом.
@@ -64,7 +64,7 @@ vp9 = Codec(
         },
 
         "scale": {
-            "type": Type.HANDLED.value,
+            "type": ParamType.HANDLED.value,
             "label": "Scale",
             "help": "Resize video.",
             "cli_flag": "scale",
@@ -74,7 +74,7 @@ vp9 = Codec(
         },
 
         "scale filter": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Scale Filter",
             "help": "Select scale filter (if you scaling)",
             "choices": [
@@ -95,7 +95,7 @@ vp9 = Codec(
         },
 
         "fps": {
-            "type": Type.DIRECT.value,
+            "type": ParamType.DIRECT.value,
             "label": "FPS",
             "help": "Enter desired FPS.",
             "cli_flag": "fps",
@@ -104,7 +104,7 @@ vp9 = Codec(
         },
 
         "deadline": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Deadline (Compression efficiency)",
             "help": "Deadline (Compression efficiency)",
             "choices": [
@@ -119,7 +119,7 @@ vp9 = Codec(
         },
 
         "tune": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Tune (Visual quality metric)",
             "help": "Select the quality metric to optimize visual quality",
             "choices": [
@@ -133,7 +133,7 @@ vp9 = Codec(
         },
 
         "pixel_format": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Pixel Format",
             "help": "Pixel Format. Specifies the color sampling and bit depth of the video (e.g. yuv420p for compatibility).",
             "choices": [
@@ -147,7 +147,7 @@ vp9 = Codec(
         },
 
         "passes": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Passes",
             "help": "Select encoding mode: single-pass (faster) or two-pass (better quality/size).",
             "choices": [
@@ -159,7 +159,7 @@ vp9 = Codec(
         },
 
         "audio codec": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Audio Codec",
             "help": "Select audio codec",
             "choices": [
@@ -173,7 +173,7 @@ vp9 = Codec(
         },
 
         "audio bitrate": {
-            "type": Type.DIRECT.value,
+            "type": ParamType.DIRECT.value,
             "label": "Audio Bitrate",
             "help": "Enter audio bitrate."
                     "\nUse k for kbps, M for Mbps",
@@ -183,7 +183,7 @@ vp9 = Codec(
         },
 
         "container": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Container",
             "help": "Select container:",
             "choices": [
@@ -206,7 +206,7 @@ svt_av1 = Codec(
     special_codec_parameters_flag="-svtav1-params",
     params={
         "crf": {
-            "type": Type.DIRECT.value,  # тип параметра.
+            "type": ParamType.DIRECT.value,  # тип параметра.
             # direct - ввод с клавиатуры,
             # choice - выбор вариантов,
             # handled - ничего конкретного не значит, просто подсказка, что обрабатывается собственным методом.
@@ -224,7 +224,7 @@ svt_av1 = Codec(
         },
 
         "scale": {
-            "type": Type.HANDLED.value,
+            "type": ParamType.HANDLED.value,
             "label": "Scale",
             "help": "Resize video.",
             "cli_flag": "scale",
@@ -234,7 +234,7 @@ svt_av1 = Codec(
         },
 
         "scale filter": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Scale Filter",
             "help": "Select scale filter (if you scaling)",
             "choices": [
@@ -255,7 +255,7 @@ svt_av1 = Codec(
         },
 
         "fps": {
-            "type": Type.DIRECT.value,
+            "type": ParamType.DIRECT.value,
             "label": "FPS",
             "help": "Enter desired FPS.",
             "cli_flag": "fps",
@@ -264,7 +264,7 @@ svt_av1 = Codec(
         },
 
         "preset": {
-            "type": Type.DIRECT.value,
+            "type": ParamType.DIRECT.value,
             "label": "Preset (Compression efficiency)",
             "help": "Compression efficiency. 0-13. Lower is better."
                     "\nPreset 13 is only meant for debugging and running fast convex-hull encoding",
@@ -275,7 +275,7 @@ svt_av1 = Codec(
         },
 
         "tune": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Tune (Visual quality metric)",
             "help": "Select the quality metric to optimize visual quality",
             "choices": [
@@ -290,7 +290,7 @@ svt_av1 = Codec(
         },
 
         "pixel_format": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Pixel Format",
             "help": "Pixel Format. Specifies the color sampling and bit depth of the video (e.g. yuv420p for compatibility).",
             "choices": [
@@ -304,7 +304,7 @@ svt_av1 = Codec(
         },
 
         "audio codec": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Audio Codec",
             "help": "Select audio codec"
                     "\nUse k for kbps, M for Mbps",
@@ -320,7 +320,7 @@ svt_av1 = Codec(
         },
 
         "audio bitrate": {
-            "type": Type.DIRECT.value,
+            "type": ParamType.DIRECT.value,
             "label": "Audio Bitrate",
             "help": "Enter audio bitrate",
             "cli_flag": "-b:a",
@@ -329,7 +329,7 @@ svt_av1 = Codec(
         },
 
         "container": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Container",
             "help": "Select container:",
             "choices": [
@@ -342,7 +342,7 @@ svt_av1 = Codec(
         },
 
         "uneven scale fix": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Uneven Scale Fix",
             "help": "This codec needs height and width to be even numbers",
             "choices": [
@@ -364,7 +364,7 @@ hevc265 = Codec(
     vcodec="libx265",
     params={
         "crf": {
-            "type": Type.DIRECT.value,  # тип параметра.
+            "type": ParamType.DIRECT.value,  # тип параметра.
             # direct - ввод с клавиатуры,
             # choice - выбор вариантов,
             # handled - ничего конкретного не значит, просто подсказка, что обрабатывается собственным методом.
@@ -382,7 +382,7 @@ hevc265 = Codec(
         },
 
         "scale": {
-            "type": Type.HANDLED.value,
+            "type": ParamType.HANDLED.value,
             "label": "Scale",
             "help": "Resize video.",
             "cli_flag": "scale",
@@ -392,7 +392,7 @@ hevc265 = Codec(
         },
 
         "scale filter": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Scale Filter",
             "help": "Select scale filter (if you scaling)",
             "choices": [
@@ -413,7 +413,7 @@ hevc265 = Codec(
         },
 
         "fps": {
-            "type": Type.DIRECT.value,
+            "type": ParamType.DIRECT.value,
             "label": "FPS",
             "help": "Enter desired FPS.",
             "cli_flag": "fps",
@@ -422,7 +422,7 @@ hevc265 = Codec(
         },
 
         "tune": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Tune (Visual quality metric)",
             "help": "Select the quality metric to optimize visual quality",
             "choices": [
@@ -436,7 +436,7 @@ hevc265 = Codec(
         },
 
         "preset": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Preset (Compression efficiency)",
             "help": "Compression efficiency",
             "choices": [
@@ -457,7 +457,7 @@ hevc265 = Codec(
         },
 
         "pixel_format": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Pixel Format",
             "help": "Pixel Format. Specifies the color sampling and bit depth of the video (e.g. yuv420p for compatibility).",
             "choices": [
@@ -471,7 +471,7 @@ hevc265 = Codec(
         },
 
         "passes": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Passes",
             "help": "Select encoding mode: single-pass (faster) or two-pass (better quality/size).",
             "choices": [
@@ -483,7 +483,7 @@ hevc265 = Codec(
         },
 
         "audio codec": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Audio Codec",
             "help": "Select audio codec",
             "choices": [
@@ -497,7 +497,7 @@ hevc265 = Codec(
         },
 
         "audio bitrate": {
-            "type": Type.DIRECT.value,
+            "type": ParamType.DIRECT.value,
             "label": "Audio Bitrate",
             "help": "Enter audio bitrate."
                     "\nUse k for kbps, M for Mbps",
@@ -507,7 +507,7 @@ hevc265 = Codec(
         },
 
         "container": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Container",
             "help": "Select container:",
             "choices": [
@@ -520,7 +520,7 @@ hevc265 = Codec(
         },
 
         "uneven scale fix": {
-            "type": Type.CHOICE.value,
+            "type": ParamType.CHOICE.value,
             "label": "Uneven Scale Fix",
             "help": "This codec needs height and width to be even numbers",
             "choices": [

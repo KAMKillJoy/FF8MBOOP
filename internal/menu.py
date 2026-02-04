@@ -1,5 +1,5 @@
 from internal import helpers
-from internal.codec_schema import Type
+from internal.codec_schema import ParamType
 from internal.my_codecs import Codec
 
 
@@ -60,7 +60,7 @@ class Menu:
         Menu.clear_screen()
         param_dict = self.codec.params[param]
         param_type = param_dict["type"]
-        if param_type == Type.DIRECT.value:
+        if param_type == ParamType.DIRECT.value:
             # свободный ввод
             allowed = param_dict.get("allowed")
 
@@ -85,7 +85,7 @@ class Menu:
                     self.settings[param] = val
                     return
 
-        elif param_type == Type.CHOICE.value:
+        elif param_type == ParamType.CHOICE.value:
             # список вариантов
             while True:
                 choices = param_dict["choices"]
